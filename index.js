@@ -15,6 +15,11 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 client.connect(err => {
     const productsCollection = client.db(process.env.DB_NAME).collection("products");
     const orderCollection = client.db(process.env.DB_NAME).collection("orders");
+    //root page response
+    app.get('/', (req, res) => {
+        res.send("Yap it's working....!!")
+    })
+
 
     //add product in database
     app.post('/addProduct', (req, res) => {
